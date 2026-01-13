@@ -71,6 +71,12 @@ nav {
     font-family: 'clash display', sans-serif;
 }
 
+.btn-reserve:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transition: 0.3s;
+}
+
 .nav-right {
     display: flex;
     align-items: center;
@@ -99,10 +105,28 @@ nav a.icon {
 #myLinks a {
     font-size: 2.5em;
     margin: 1.2% 0;
-    width: 100%;
+    width: auto;
     text-align: center;
     color: var(--primary-color);
     font-family: 'Clash Display', sans-serif;
+    position: relative;
+    padding: 5px 0;
+}
+
+#myLinks a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+#myLinks a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 .line {
