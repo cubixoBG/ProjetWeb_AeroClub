@@ -30,6 +30,14 @@
     font-style: normal;
 }
 
+/* class styles */
+
+.div-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 a {
     text-decoration: none;
 }
@@ -50,12 +58,23 @@ nav {
     display: flex;
     align-items: center;
     height: 100%;
+    width: fit-content;
+}
+
+.logo:hover {
+    cursor: pointer;
 }
 
 .logo img {
     height: 70px;
     width: auto;
     display: block;
+    transition: 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.07);
+    transition: 0.3s;
 }
 
 .btn-reserve {
@@ -103,7 +122,7 @@ nav a.icon {
 }
 
 #myLinks a {
-    font-size: 2.5em;
+    font-size: 2em;
     margin: 1.2% 0;
     width: auto;
     text-align: center;
@@ -137,3 +156,73 @@ nav a.icon {
 
 /* Footer styles */
 
+footer {
+    height: auto;
+    margin: 24% 5% 5% 5%;
+}
+
+#footer-links {
+    display: none;
+}
+
+footer h3 {
+    font-family: 'Clash Display', sans-serif;
+    color: var(--primary-color);
+    margin: 5% 0 0 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: 'Nunito', sans-serif;
+    display: block;
+    margin: 8px 0;
+}
+
+#footer-social a{
+    margin: 5% 3%;
+    color: var(--primary-color);
+    font-size: 2.7em;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+#footer-social a:hover i {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+footer li {
+    list-style: none;
+    margin: 1.3% 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9em;
+}
+
+#footer-bas a {
+    text-decoration: underline;
+    transition: 0.3s;
+    width: fit-content;
+}
+
+#footer-bas a:hover {
+    color: var(--primary-color);
+    margin-left: 2%;
+    transition: 0.3s;
+}
+
+footer .line {
+    width: 90%;
+    margin: 7% 0;
+
+}
+
+#footer-bas p {
+    margin: 7% 0;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+main {
+    min-height: 60vh;
+}

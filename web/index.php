@@ -19,9 +19,7 @@
 
     </main>
 
-    <footer>
-        <?php include 'php_parts/footer.php' ?>
-    </footer>
+    <?php include 'php_parts/footer.php' ?>
 </body>
 
 </html>
