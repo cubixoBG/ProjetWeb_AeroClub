@@ -1,6 +1,8 @@
 <footer>
     <div id="footer-left">
-        <a href="index.php" class="logo"><img src="img/logo_aero.webp" alt="logo"></a>
+        <div class="div-center">
+            <a href="index.php" class="logo"><img src="img/logo_aero.webp" alt="logo"></a>
+        </div>
         <div id="footer-adresse">
             <h3>Adresse :</h3>
             <ul>
@@ -16,7 +18,7 @@
             </ul>
         </div>
         <div id="footer-horraire">
-            <h3>Horraires :</h3>
+            <h3>Horaires :</h3>
             <ul>
                 <li><span>Lundi :</span> 09h00 - 18h00</li>
                 <li><span>Mardi :</span> 09h00 - 18h00</li>
@@ -27,9 +29,11 @@
                 <li><span>Dimanche :</span> Fermé</li>
             </ul>
         </div>
-        <div id="footer-social">
-            <a href="https://www.facebook.com/aeroclub.lepuy" target="_blank"><i
+        <div class="div-center">
+            <div id="footer-social">
+                <a href="https://www.facebook.com/aeroclub.lepuy" target="_blank"><i
                     class="fa fa-facebook-official"></i></a>
+            </div>
         </div>
     </div>
     <div id="footer-right">
@@ -44,7 +48,6 @@
             <a href="#">Contact</a>
         </div>
     </div>
-    <div class="div-center">
         <div class="line"></div>
     </div>
     <div id="footer-bas">
