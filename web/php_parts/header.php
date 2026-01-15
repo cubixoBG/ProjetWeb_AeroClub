@@ -13,12 +13,12 @@
 
     <div id="myLinks">
         <a href="index.php">Accueil</a>
-        <a href="#">Formations</a>
-        <a href="#">Avions</a>
-        <a href="#">Services</a>
-        <a href="#">Actualités</a>
+        <a href="formations.php">Formations</a>
+        <a href="avions.php">Avions</a>
+        <a href="services.php">Services</a>
+        <a href="actualites.php">Actualités</a>
         <div class="line"></div>
-        <a href="#">Espace Membres</a>
-        <a href="#">Contact</a>
+        <a href="espace_membre.php">Espace Membres</a>
+        <a href="contact.php">Contact</a>
     </div>
 </nav>
