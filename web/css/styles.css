@@ -99,7 +99,7 @@ nav {
     color: var(--accent-color);
     white-space: nowrap;
     background-color: var(--primary-color);
-    font-family: 'clash display', sans-serif;
+    font-family: var(--font-body);
 }
 
 .btn-reserve:hover {
@@ -138,7 +138,7 @@ nav a.icon {
     width: auto;
     text-align: center;
     color: var(--primary-color);
-    font-family: 'Clash Display', sans-serif;
+    font-family: var(--font-heading);
     position: relative;
     padding: 5px 0;
 }
@@ -181,7 +181,7 @@ footer {
 }
 
 footer h3 {
-    font-family: 'Clash Display', sans-serif;
+    font-family: var(--font-heading);
     color: var(--primary-color);
     margin: 1.7em 0 0 0;
 }
@@ -189,7 +189,7 @@ footer h3 {
 footer a {
     text-decoration: none;
     color: var(--text-color);
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-body);
     display: block;
     margin: 8px 0;
 }
@@ -210,7 +210,7 @@ footer a {
 footer li {
     list-style: none;
     margin: 0.7em 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.9em;
 }
 
@@ -249,7 +249,7 @@ footer .line {
 
 #footer-bas p {
     margin: 2em 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-body);
 }
 
 /* ------------------------------------------------------------- */
