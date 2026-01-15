@@ -39,22 +39,22 @@
     <div id="footer-right">
         <div id="footer-links">
             <a href="index.php">Accueil</a>
-            <a href="#">Formations</a>
-            <a href="#">Avions</a>
-            <a href="#">Services</a>
-            <a href="#">Actualités</a>
+            <a href="formations.php">Formations</a>
+            <a href="avions.php">Avions</a>
+            <a href="services.php">Services</a>
+            <a href="actualites.php">Actualités</a>
             <div class="line"></div>
-            <a href="#">Espace Membres</a>
-            <a href="#">Contact</a>
+            <a href="espace_membre.php">Espace Membres</a>
+            <a href="contact.php">Contact</a>
         </div>
     </div>
         <div class="line"></div>
     </div>
     <div id="footer-bas">
         <ul>
-            <li><a href="#">Mentions légales</a></li>
-            <li><a href="#">Politique de confidentialité</a></li>
-            <li><a href="#">Paramètres des cookies</a></li>
+            <li><a href="mentions_legales.php">Mentions légales</a></li>
+            <li><a href="confidentialite.php">Politique de confidentialité</a></li>
+            <li><a href="cookies.php">Paramètres des cookies</a></li>
         </ul>
         <p>&copy; 2026 AeroClub. Tous droits réservés.</p>
     </div>
