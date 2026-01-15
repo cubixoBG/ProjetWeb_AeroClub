@@ -1,0 +1,266 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-top: -80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.heroTexte {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--accent-color);
+    padding: 0 5%;
+    margin-top: 80px;
+}
+
+.heroTexte h1 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.heroTexte p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+}
+
+/* Section Info Index ----------------------------------------- */
+
+#infoIndex {
+    padding: 10% 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+
+.info-content {
+    width: 100%;
+}
+
+#infoIndex h2 {
+    font-family: 'Clash Display', sans-serif;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#infoIndex p {
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+#infoIndex img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Devenir Pilote ----------------------------------------- */
+
+#devenirpilote {
+    background-color: var(--primary-color);
+    padding: 6% 7%;
+    color: var(--accent-color);
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    /* rajout de shadow autour */
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+#devenirpilote h3 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#devenirpilote p {
+    line-height: 1.6;
+    margin: 2% 0;
+}
+
+#devenirpilote button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#devenirpilote button:hover {
+    background-color: var(--color-secondary);
+    color: var(--accent-color);
+    border: white 2px solid;
+    transition: 0.3s;
+}
+
+/* PDF info sup */
+
+#infosupPDF {
+    padding: 7% 7%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-color);
+}
+
+.pdf-wrapper {
+    width: 100%;
+    max-width: 400px;
+    /* On garde l'image à une taille raisonnable */
+    text-align: center;
+}
+
+.pdf-link {
+    position: relative;
+    display: block;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pdf-link img {
+    width: 100%;
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+/* Petit texte qui apparaît au survol sur PC ou au clic sur Mobile */
+.overlay-click {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 36, 107, 0.7);
+    /* Ton bleu primaire avec opacité */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-family: 'Clash Display', sans-serif;
+}
+
+.overlay-click i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Effets au survol */
+.pdf-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.pdf-link:hover .overlay-click {
+    opacity: 1;
+}
+
+.pdf-link:hover img {
+    filter: blur(2px);
+}
+
+/* Bouton de téléchargement secondaire */
+.pdf-footer {
+    margin-top: 25px;
+}
+
+.btn-download {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-decoration: underline !important;
+}
+
+/* Responsive --------------------------------------------- */
+
+@media screen and (min-width: 768px) {
+    .hero {
+        height: 100vh;
+    }
+
+    .heroTexte h1 {
+        font-size: 4.5rem;
+    }
+
+    .heroTexte p {
+        font-size: 1.8rem;
+    }
+
+    /* Info club */
+
+    #infoIndex {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8% 7%;
+        gap: 60px;
+    }
+
+    .info-content {
+        flex: 1;
+    }
+
+    #infoIndex h2 {
+        text-align: left;
+        font-size: 3rem;
+    }
+
+    #infoIndex p {
+        font-size: 1.2rem;
+    }
+
+    #infoIndex img {
+        flex: 1;
+        max-width: 45%;
+    }
+
+    /* devenir pilote */
+
+    #devenirpilote h3 {
+        font-size: 3.2rem;
+    }
+
+    #devenirpilote p {
+        font-size: 1.3rem;
+    }
+
+    #devenirpilote button {
+        font-size: 1.3rem;
+        padding: 15px 30px;
+    }
+
+    /* PDF info sup */
+}
