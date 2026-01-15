@@ -39,7 +39,7 @@
     <div id="footer-right">
         <div id="footer-links">
             <a href="index.php">Accueil</a>
-            <a href="#">L'école</a>
+            <a href="#">Formations</a>
             <a href="#">Avions</a>
             <a href="#">Services</a>
             <a href="#">Actualités</a>

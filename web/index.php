@@ -21,7 +21,7 @@
     </header>
 
     <main>
-
+        
     </main>
 
     <?php include 'php_parts/footer.php' ?>
