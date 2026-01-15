@@ -225,6 +225,7 @@ footer li {
     transition: 0.3s;
     width: fit-content;
     margin: 0.1em 0;
+    font-size: 0.9em;
 }
 
 #footer-bas a:hover {
@@ -235,17 +236,12 @@ footer li {
 footer .line {
     width: 90%;
     margin: 2em 0;
-
 }
 
 #footer-bas p {
     margin: 2em 0;
     font-family: 'Nunito', sans-serif;
-
 }
 
 /* ------------------------------------------------------------- */
 
-main {
-    min-height: 60vh;
-}
