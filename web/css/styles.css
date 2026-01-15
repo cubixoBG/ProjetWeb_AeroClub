@@ -13,6 +13,10 @@
     --accent-color: white;
     --background-color: #FAF9F6;
     --text-color: black;
+    --input-border: #8e8e8e;       
+    --input-focus: var(--primary-color);
+    --font-heading: 'Clash Display', sans-serif; 
+    --font-body: 'Nunito', sans-serif;
 }
 
 body {
