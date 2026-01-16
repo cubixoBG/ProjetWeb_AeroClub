@@ -40,7 +40,6 @@
         <div id="footer-links">
             <a href="index.php">Accueil</a>
             <a href="formations.php">Formations</a>
-            <a href="avions.php">Avions</a>
             <a href="services.php">Services</a>
             <a href="actualites.php">Actualités</a>
             <div class="line"></div>
