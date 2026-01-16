@@ -1,0 +1,189 @@
+/* Hero Section */
+.hero-container {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.services-hero {
+    text-align: center;
+    background: var(--background-color);
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .hero-image {
+        height: 350px;
+        margin-bottom: 3rem;
+    }
+    
+    .services-hero {
+        padding: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-image {
+        height: 400px;
+        margin-bottom: 4rem;
+    }
+    
+    .services-hero {
+        padding: 4rem;
+    }
+}
+
+.services-hero h1 {
+    color: var(--primary-color);
+    font-family: 'Clash Display', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.services-hero h2 {
+    color: var(--primary-color);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+}
+
+.services-hero .underline {
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    text-underline-offset: 4px;
+}
+
+.services-hero p {
+    color: var(--text-color);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+/* Pricing Options */
+.options-prix {
+    padding: 1rem;
+    background-color: var(--background-color);
+}
+
+.option-prix {
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option-prix:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.option-prix h3 {
+    color: var(--primary-color);
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.option-prix p {
+    color: var(--text-color);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.prix {
+    background-color: #e4e4e4;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: flex;
+    margin: 0.5rem auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: fit-content;
+}
+
+.disclaimer {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 2rem 0;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .services-hero {
+        padding: 4rem 2rem;
+    }
+    
+    .services-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .services-hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .options-prix {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    
+    .option-prix {
+        padding: 2rem;
+    }
+}
+
+/* Text Link */
+.text-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+    color: #001a4f;
+}
+
+.btn-service .btn-reserve {
+    margin-right: 0;
+}
