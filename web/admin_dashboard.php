@@ -69,19 +69,22 @@ $all_news = $db->query("SELECT * FROM Actualite ORDER BY date_publication DESC")
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Admin - AeroClub</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/espace_membre.css">
+    <link rel="stylesheet" href="css/stylesDesktop.css">
 </head>
+
 <body>
     <header><?php include 'php_parts/header.php' ?></header>
     <main>
         <section class="div-center auth-wrapper">
             <div class="dashboard-card main-dashboard">
                 <h1>Panel Admin <span class="admin-badge">Staff</span></h1>
-                
+
                 <?php if ($msg): ?>
                     <div class="auth-msg success-msg"><?= $msg ?></div>
                 <?php endif; ?>
@@ -95,17 +98,20 @@ $all_news = $db->query("SELECT * FROM Actualite ORDER BY date_publication DESC")
                             <input type="hidden" name="current_pdf" value="<?= $edit_data['pdf_url'] ?? '' ?>">
 
                             <div class="form-main-inputs">
-                                <input type="text" name="titre" placeholder="Titre de l'article" value="<?= htmlspecialchars($edit_data['titre'] ?? '') ?>" required>
-                                
+                                <input type="text" name="titre" placeholder="Titre de l'article"
+                                    value="<?= htmlspecialchars($edit_data['titre'] ?? '') ?>" required>
+
                                 <div class="file-group">
                                     <label>Date de publication</label>
                                     <input type="date" name="date_publication" value="<?= $default_date ?>" required>
                                 </div>
                             </div>
 
-                            <textarea name="contenu" placeholder="Texte de l'article" required><?= htmlspecialchars($edit_data['description'] ?? '') ?></textarea>
-                            
-                            <input type="url" name="lien_externe" placeholder="Lien externe (http://...)" value="<?= htmlspecialchars($edit_data['lien_externe'] ?? '') ?>">
+                            <textarea name="contenu" placeholder="Texte de l'article"
+                                required><?= htmlspecialchars($edit_data['description'] ?? '') ?></textarea>
+
+                            <input type="url" name="lien_externe" placeholder="Lien externe (http://...)"
+                                value="<?= htmlspecialchars($edit_data['lien_externe'] ?? '') ?>">
 
                             <div class="file-inputs">
                                 <div class="file-group">
@@ -136,22 +142,28 @@ $all_news = $db->query("SELECT * FROM Actualite ORDER BY date_publication DESC")
                             </thead>
                             <tbody>
                                 <?php foreach ($all_news as $n): ?>
-                                <tr>
-                                    <td class="bold"><?= htmlspecialchars($n['titre']) ?></td>
-                                    <td class="txt-small"><?= date('d/m/Y', strtotime($n['date_publication'])) ?></td>
-                                    <td class="action-cell">
-                                        <a href="?edit=<?= $n['id'] ?>" class="link-edit">Modifier</a>
-                                        <a href="?delete=<?= $n['id'] ?>" class="link-delete" onclick="return confirm('Supprimer ?')">Supprimer</a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td class="bold"><?= htmlspecialchars($n['titre']) ?></td>
+                                        <td class="txt-small"><?= date('d/m/Y', strtotime($n['date_publication'])) ?></td>
+                                        <td class="action-cell">
+                                            <a href="?edit=<?= $n['id'] ?>" class="link-edit">Modifier</a>
+                                            <a href="?delete=<?= $n['id'] ?>" class="link-delete"
+                                                onclick="return confirm('Supprimer ?')">Supprimer</a>
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <div class="dashboard-footer">
+                    <a href="logout.php" class="btn-logout">Déconnexion</a>
+                </div>
+
             </div>
         </section>
     </main>
     <?php include 'php_parts/footer.php' ?>
 </body>
+
 </html>
