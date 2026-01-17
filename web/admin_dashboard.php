@@ -62,6 +62,7 @@ $default_date = $edit_data ? date('Y-m-d', strtotime($edit_data['date_publicatio
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,14 +70,16 @@ $default_date = $edit_data ? date('Y-m-d', strtotime($edit_data['date_publicatio
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/stylesDesktop.css">
     <link rel="stylesheet" href="css/espace_membre.css">
+    <link rel="stylesheet" href="css/stylesDesktop.css">
 </head>
+
 <body>
     <header><?php include 'php_parts/header.php' ?></header>
     <main>
         <section class="div-center auth-wrapper">
             <div class="dashboard-card main-dashboard">
                 <h1>Panel Admin <span class="admin-badge">Staff</span></h1>
-                
+
                 <?php if ($msg): ?>
                     <div class="auth-msg success-msg"><?= $msg ?></div>
                 <?php endif; ?>
@@ -142,9 +145,14 @@ $default_date = $edit_data ? date('Y-m-d', strtotime($edit_data['date_publicatio
                         </table>
                     </div>
                 </div>
+                <div class="dashboard-footer">
+                    <a href="logout.php" class="btn-logout">Déconnexion</a>
+                </div>
+
             </div>
         </section>
     </main>
     <?php include 'php_parts/footer.php' ?>
 </body>
+
 </html>
