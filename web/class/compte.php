@@ -8,7 +8,6 @@ class Compte {
     protected string $mdp;
     private $db;
 
-    // Constructeur flexible (important pour ne pas avoir d'ArgumentCountError)
     public function __construct(string $name = "", string $lastName = "", string $email = "", string $mdp = "") {
         $this->name = $name;
         $this->lastName = $lastName;
@@ -20,13 +19,11 @@ class Compte {
         $this->db = getPDO();
     }
 
-    // Méthode d'inscription
     public function creerCompte(): bool {
         $req = $this->db->prepare("INSERT INTO Compte (name, lastname, email, mdp, role) VALUES (?, ?, ?, ?, 'membre')");
         return $req->execute([$this->name, $this->lastName, $this->email, $this->mdp]);
     }
 
-    // Méthode de connexion
     public function connexion(string $email, string $mdp): bool {
         $req = $this->db->prepare("SELECT * FROM Compte WHERE email = ?");
         $req->execute([$email]);
@@ -35,6 +32,7 @@ class Compte {
         if ($user && password_verify($mdp, $user['mdp'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['name'];
+            $_SESSION['user_role'] = $user['role'];
             return true;
         }
         return false;

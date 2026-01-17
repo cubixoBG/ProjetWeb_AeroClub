@@ -23,18 +23,26 @@ body {
     background-color: var(--background-color);
 }
 
+h1, h2, h3, .btn-reserve, label {
+    font-family: var(--font-heading);
+}
+
+p, li, input, textarea, select {
+    font-family: var(--font-body);
+}
+
 /* fonts ----------------------------------------------------*/
 
 @font-face {
     font-family: 'Clash Display';
-    src: url('fonts/ClashDisplay-Variable.ttf') format('truetype');
+    src: url('../fonts/ClashDisplay-Variable.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Nunito';
-    src: url('fonts/Nunito.ttf') format('truetype');
+    src: url('../fonts/Nunito.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -106,6 +114,7 @@ nav {
     background-color: rgba(250, 249, 246, 0); 
     color: var(--primary-color);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .nav-right {

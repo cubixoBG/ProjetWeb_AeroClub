@@ -8,10 +8,12 @@ $msg = "";
 if (isset($_POST['login'])) {
     $auth = new Compte();
     if ($auth->connexion($_POST['email'], $_POST['mdp'])) {
-        header("Location: espace_membre.php");
+        if ($_SESSION['user_role'] === 'admin') {
+            header("Location: admin_dashboard.php");
+        } else {
+            header("Location: espace_membre.php");
+        }
         exit();
-    } else {
-        $msg = "Email ou mot de passe incorrect.";
     }
 }
 
@@ -27,10 +29,11 @@ $isLoggedIn = isset($_SESSION['user_id']);
 
 
 // API Météo
-function getMeteo() {
+function getMeteo()
+{
     $apiKey = "a221fcf8378ab5ca6e6911f79368a0aa";
     $city = "Le Puy-en-Velay";
-    $url = "https://api.openweathermap.org/data/2.5/weather?q=".urlencode($city)."&appid=".$apiKey."&units=metric&lang=fr";
+    $url = "https://api.openweathermap.org/data/2.5/weather?q=" . urlencode($city) . "&appid=" . $apiKey . "&units=metric&lang=fr";
 
     // Système de cache 30 min
     if (!isset($_SESSION['meteo_data']) || (time() - $_SESSION['meteo_time'] > 1800)) {
@@ -39,7 +42,7 @@ function getMeteo() {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Important sur Docker pour éviter les erreurs de certificat
-        
+
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
@@ -118,14 +121,14 @@ $meteo = getMeteo();
                             <h3>Météo</h3>
                             <?php if ($meteo): ?>
                                 <ul class="meteo-list">
-                                    <li><i class="fa fa-map-marker"></i> Le-Puy-en-Velay</li>
+                                    <li><i class="fa fa-map-marker" style="color: var(--primary-color);"></i> Le-Puy-en-Velay</li>
                                     <li>
                                         <img src="https://openweathermap.org/img/wn/<?= $meteo['icon'] ?>.png" alt="icon"
                                             style="width:25px; vertical-align:middle;">
                                         <?= $meteo['desc'] ?>
                                     </li>
-                                    <li><i class="fa fa-wind"></i> <?= $meteo['wind'] ?> km/h</li>
-                                    <li><i class="fa fa-thermometer-half"></i> <?= $meteo['temp'] ?>°C</li>
+                                    <li><i class="fa-solid fa-wind" style="color: var(--primary-color);"></i> <?= $meteo['wind'] ?> km/h</li>
+                                    <li><i class="fa fa-thermometer-half" style="color: var(--primary-color);"></i> <?= $meteo['temp'] ?>°C</li>
                                 </ul>
                             <?php else: ?>
                                 <p>Météo indisponible</p>
@@ -144,13 +147,12 @@ $meteo = getMeteo();
                             <h3>Actions rapides</h3>
                             <div class="action-row">
                                 <button class="btn-mail"><i class="fa fa-envelope-o"></i></button>
-                                <a href="reservation.php" class="btn-blue-pill">Réserver</a>
+                                <a href="reservation.php" class="btn-reserve">Réserver</a>
                             </div>
                         </div>
 
                         <div class="mini-card map-container">
                             <span class="map-label">Trafic Aérien</span>
-                            <img src="img/map_trafic.webp" alt="Carte trafic">
                         </div>
                     </div>
 
