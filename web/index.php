@@ -27,7 +27,7 @@
             <img src="img/heroIndex.webp" alt="AéroClub du Puy-en-Velay">
             <div class="heroTexte">
                 <h1>AéroClub du Puy-en-Velay</h1>
-                <p>Donnez du sens à vos rêves ✨</p>
+                <p>Donnez du sens à vos rêves !</p>
             </div>
         </section>
 
