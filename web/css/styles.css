@@ -13,9 +13,9 @@
     --accent-color: white;
     --background-color: #FAF9F6;
     --text-color: black;
-    --input-border: #8e8e8e;       
+    --input-border: #8e8e8e;
     --input-focus: var(--primary-color);
-    --font-heading: 'Clash Display', sans-serif; 
+    --font-heading: 'Clash Display', sans-serif;
     --font-body: 'Nunito', sans-serif;
 }
 
@@ -23,18 +23,42 @@ body {
     background-color: var(--background-color);
 }
 
+h1,
+h2,
+h3,
+.btn-reserve,
+label {
+    font-family: var(--font-heading);
+}
+
+p,
+li,
+input,
+textarea,
+select {
+    font-family: var(--font-body);
+}
+
+p {
+    font-size: 1.3em;
+}
+
+a {
+    text-decoration: none;
+}
+
 /* fonts ----------------------------------------------------*/
 
 @font-face {
     font-family: 'Clash Display';
-    src: url('fonts/ClashDisplay-Variable.ttf') format('truetype');
+    src: url('../fonts/ClashDisplay-Variable.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Nunito';
-    src: url('fonts/Nunito.ttf') format('truetype');
+    src: url('../fonts/Nunito.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -47,9 +71,13 @@ body {
     align-items: center;
 }
 
-a {
-    text-decoration: none;
+.divider {
+    width: 50px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px 0 30px;
 }
+
 
 /* Header styles -----------------------------------------------*/
 
@@ -60,9 +88,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 7%;
-    position: relative; 
+    position: relative;
     z-index: 10;
-    background-color: rgba(250, 249, 246, 0); 
+    background-color: rgba(250, 249, 246, 0);
     backdrop-filter: blur(8px);
 }
 
@@ -99,12 +127,14 @@ nav {
     color: var(--accent-color);
     white-space: nowrap;
     background-color: var(--primary-color);
-    font-family: 'clash display', sans-serif;
+    font-family: var(--font-body);
 }
 
 .btn-reserve:hover {
-    background-color: rgba(250, 249, 246, 0); 
+    background-color: rgba(250, 249, 246, 0);
+    color: var(--primary-color);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .nav-right {
@@ -138,7 +168,7 @@ nav a.icon {
     width: auto;
     text-align: center;
     color: var(--primary-color);
-    font-family: 'Clash Display', sans-serif;
+    font-family: var(--font-heading);
     position: relative;
     padding: 5px 0;
 }
@@ -181,7 +211,7 @@ footer {
 }
 
 footer h3 {
-    font-family: 'Clash Display', sans-serif;
+    font-family: var(--font-heading);
     color: var(--primary-color);
     margin: 1.7em 0 0 0;
 }
@@ -189,12 +219,12 @@ footer h3 {
 footer a {
     text-decoration: none;
     color: var(--text-color);
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-body);
     display: block;
     margin: 8px 0;
 }
 
-#footer-social a{
+#footer-social a {
     margin: 0.5em 3%;
     color: var(--primary-color);
     font-size: 2.7em;
@@ -210,7 +240,7 @@ footer a {
 footer li {
     list-style: none;
     margin: 0.7em 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.9em;
 }
 
@@ -249,7 +279,7 @@ footer .line {
 
 #footer-bas p {
     margin: 2em 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-body);
 }
 
 /* ------------------------------------------------------------- */
@@ -288,10 +318,10 @@ footer .line {
 /* card */
 .card-box { 
     width: 100%;
-    max-width: 800px; 
+    max-width: 800px;
     padding: 50px;
     border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .card-box article {
@@ -303,16 +333,16 @@ footer .line {
     color: var(--primary-color);
     font-size: 1.5rem;
     margin-bottom: 15px;
-    border-bottom: 2px solid rgba(0, 36, 107, 0.1); 
+    border-bottom: 2px solid rgba(0, 36, 107, 0.1);
     padding-bottom: 8px;
     width: fit-content;
 }
 
-.card-box p, 
+.card-box p,
 .card-box li {
     font-family: var(--font-body);
     color: var(--text-color);
-    line-height: 1.6; 
+    line-height: 1.6;
     font-size: 1rem;
 }
 
@@ -328,7 +358,7 @@ footer .line {
 }
 
 .custom-list li::before {
-    content: "•"; 
+    content: "•";
     color: var(--primary-color);
     font-weight: bold;
     font-size: 1.5em;
@@ -381,7 +411,7 @@ footer .line {
     .page-header h1 {
         font-size: 2rem;
     }
-    
+
     .links-row {
         flex-direction: column;
         gap: 10px;
