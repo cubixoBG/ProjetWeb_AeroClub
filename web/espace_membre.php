@@ -32,7 +32,8 @@ $isLoggedIn = isset($_SESSION['user_id']);
 // API Météo
 function getMeteo()
 {
-    $apiKey = "";
+    global $cleMeteo;
+    $apiKey = $cleMeteo;
     $city = "Le Puy-en-Velay";
     $url = "https://api.openweathermap.org/data/2.5/weather?q=" . urlencode($city) . "&appid=" . $apiKey . "&units=metric&lang=fr";
 
@@ -42,7 +43,7 @@ function getMeteo()
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Important sur Docker pour éviter les erreurs de certificat
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -58,7 +59,7 @@ function getMeteo()
             ];
             $_SESSION['meteo_time'] = time();
         } else {
-            return null; // Si l'API renvoie une erreur (ex: clé invalide)
+            return null;
         }
     }
     return $_SESSION['meteo_data'] ?? null;
