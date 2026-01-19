@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'class/Compte.php';
+require_once 'configuration/config.php';
 
 $msg = "";
 
@@ -31,7 +32,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
 // API Météo
 function getMeteo()
 {
-    $apiKey = "a221fcf8378ab5ca6e6911f79368a0aa";
+    $apiKey = "";
     $city = "Le Puy-en-Velay";
     $url = "https://api.openweathermap.org/data/2.5/weather?q=" . urlencode($city) . "&appid=" . $apiKey . "&units=metric&lang=fr";
 

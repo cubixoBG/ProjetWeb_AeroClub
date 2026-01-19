@@ -33,7 +33,7 @@
                     formules :</p>
             </div>
         </section>
-    
+
         <section class="options-prix">
             <div class="container">
                 <!-- vol 15 minutes-->
