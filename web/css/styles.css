@@ -285,7 +285,7 @@ footer .line {
 /* ------------------------------------------------------------- */
 
 
-/* - PAGES SPÉCIFIQUES : cookies, confidentialité, mentions légales - */
+/* PAGES SPÉCIFIQUES : cookies, confidentialité, mentions légales */
 
 .page-layout {
     padding: 60px 20px 80px;
@@ -316,8 +316,7 @@ footer .line {
 }
 
 /* card */
-.card-box {
-    /* Blanc */
+.card-box { 
     width: 100%;
     max-width: 800px;
     padding: 50px;
