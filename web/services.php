@@ -4,7 +4,8 @@
 <head>
     <!-- Meta tags SEO -->
     <meta title="Site de l'aeroclub du Velay">
-    <meta description="Bienvenue sur le site de l'aeroclub du Velay, votre destination pour tout ce qui concerne l'aviation.">
+    <meta
+        description="Bienvenue sur le site de l'aeroclub du Velay, votre destination pour tout ce qui concerne l'aviation.">
     <meta keywords="aeroclub, aviation, vol, formation, avions, Velay, Haute-Loire, Puy-en-Velay, services aeroclub">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,19 +23,17 @@
     </header>
 
     <main>
-        <section class="hero-container">
-            <div class="hero-image">
-                <img src="img/tarifs_hero.webp" alt="Deux avions, un rouge et un bleu">
-            </div>
-            <div class="services-hero">
-                <div class="container">
-                    <h1>Nos tarifs</h1>
-                    <h2>Des sites extraordinaires à <span class="underline">redécouvrir</span></h2>
-                    <p>Venez survoler le Puy et sa région dans l'un de nos avions. Vous pourrez choisir entre différentes formules :</p>
-                </div>
+        <section class="hero-page">
+            <img src="img/tarifs_hero.webp" alt="Deux avions, un rouge et un bleu">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Nos tarifs</h1>
+                <h2>Des sites extraordinaires à <span class="underline">redécouvrir</span></h2>
+                <p>Venez survoler le Puy et sa région dans l'un de nos avions. Vous pourrez choisir entre différentes
+                    formules :</p>
             </div>
         </section>
-
+    
         <section class="options-prix">
             <div class="container">
                 <!-- vol 15 minutes-->
@@ -74,7 +73,8 @@
                 </div>
 
                 <div class="disclaimer">
-                    *Les avions pouvant embarquer 3 passagers et un pilote, les tarifs sont identiques pour une, deux ou trois personnes.
+                    *Les avions pouvant embarquer 3 passagers et un pilote, les tarifs sont identiques pour une, deux ou
+                    trois personnes.
                 </div>
 
                 <div class="div-center btn-service">
