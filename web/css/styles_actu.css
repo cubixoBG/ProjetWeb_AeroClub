@@ -1,0 +1,91 @@
+.archive-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 40px 0 30px 0;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.btn-archive {
+    padding: 8px 20px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-family: var(--font-h);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.news-feed {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 5%;
+    margin-bottom: 50px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-header h2 {
+    font-family: var(--font-h);
+    color: var(--primary-color);
+    font-size: 22px;
+    margin: 0;
+}
+
+.news-image {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+}
+
+.btn-archive.active, 
+.btn-archive:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 44, 109, 0.2);
+}
+
+/* --- RESPONSIVE PC --- */
+@media (min-width: 768px) {
+    .news-feed {
+        max-width: 850px;
+        margin: 40px auto 80px auto;
+        padding: 0;
+    }
+
+    .news-card {
+        padding: 40px;
+    }
+
+    .news-header h2 {
+        font-size: 32px;
+    }
+
+    .news-content p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+}

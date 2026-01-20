@@ -5,7 +5,7 @@
     <a href="index.php" class="logo"><img src="img/logo_aero.webp" alt="logo"></a>
 
     <div class="nav-right">
-        <a href="#" class="btn-reserve">Réserver</a>
+        <a href="../services.php" class="btn-reserve">Réserver</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>

@@ -45,7 +45,7 @@
             <p>En faire un métier, pratiquer une activité sportive différente et exaltante, apprendre à être en pleine
                 possession de ses moyens et bien dans sa peau sont quelques unes des conséquences bénéfiques que l'ont
                 peut espérer retirer de cette pratique.</p>
-            <button>Découvrir</button>
+                <button onclick="window.location.href='formations.php'">Découvrir</button>
         </section>
         <section id="infosupPDF">
             <div class="pdf-wrapper">
