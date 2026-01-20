@@ -40,9 +40,6 @@
                 Code APE : 92.6C - Activités de clubs de sports <br>
                 Téléphone : 04 71 08 XX XX <br>
                 Courriel : contact@aeroclub-puy.fr<br>
-
-
-
          </article>
 
         <article>
