@@ -1,176 +1,182 @@
-/* Hero Section */
-.hero-page {
+header.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.hero-section {
     position: relative;
-    height: 60vh;
-    margin-top: -80px;
+    height: 75vh; 
+    width: 100%;
+    overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    text-align: center;
 }
 
-.hero-overlay {
+
+.hero-bg-img {
     position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
     z-index: 1;
 }
 
+/* filtre permettant de retravailler l'image */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,36,107,0.3), rgba(0,0,0,0.6));
+    z-index: 2;
+}
+
+
 .hero-content {
     position: relative;
-    z-index: 2;
-    text-align: center;
+    z-index: 3; /* permet de placer le texte au dessus de l'image et du filtre */
     color: white;
+    padding: 0 20px;
+    margin-top: 60px; 
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .hero-content h2 {
-    font-size: 3em;
-}
-
-/* Responsive Design */
-@media (min-width: 768px) {
-    .hero-content {
-        text-align: left;
-        width: 100%;
-        max-width: 1200px;
-    }
-
-    .hero-content h1 {
-        font-size: 64px;
-    }
-}
-
-.services-hero h1 {
-    color: var(--primary-color);
-    font-family: 'Clash Display', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.services-hero h2 {
-    color: var(--primary-color);
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-body); 
     font-size: 1.5rem;
-    font-weight: normal;
-    margin-bottom: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
 }
 
-.services-hero .underline {
-    text-decoration: underline;
-    text-decoration-color: var(--primary-color);
-    text-underline-offset: 4px;
+.hero-content .underline {
+    border-bottom: 2px solid var(--accent-color);
 }
 
-.services-hero p {
-    color: var(--text-color);
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    text-align: center;
+/* section prix */
+.pricing-section {
+    padding: 80px 5%;
+    background-color: var(--background-color); 
 }
 
-/* Pricing Options */
-.options-prix {
-    padding: 1rem;
-    background-color: var(--background-color);
-}
-
-.option-prix {
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.option-prix:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-.option-prix h3 {
-    color: var(--primary-color);
-    font-family: 'Clash Display', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.option-prix p {
-    color: var(--text-color);
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.prix {
-    background-color: #e4e4e4;
-    border-radius: 8px;
-    padding: 1rem;
-    font-family: 'Nunito', sans-serif;
-    font-weight: bold;
-    color: var(--primary-color);
+.pricing-grid {
     display: flex;
-    margin: 0.5rem auto;
-    text-align: center;
     justify-content: center;
-    align-items: center;
-    max-width: 90%;
-    width: fit-content;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.disclaimer {
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.9rem;
-    color: #666;
-    margin: 2rem 0;
+/* card */
+.price-card {
+    background: white;
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    padding: 40px 30px;
+    border-radius: 24px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
     text-align: center;
-    padding: 0 1rem;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
-    .services-hero {
-        padding: 4rem 2rem;
-    }
-    
-    .services-hero h1 {
-        font-size: 3rem;
-    }
-    
-    .services-hero h2 {
-        font-size: 1.8rem;
-    }
-    
-    .options-prix {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-    
-    .option-prix {
-        padding: 2rem;
-    }
+.price-card:hover {
+    transform: translateY(-10px);
 }
 
-/* Text Link */
-.text-link {
+.price-card h3 {
+    font-family: var(--font-heading);
     color: var(--primary-color);
-    text-decoration: none;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.duration {
+    font-family: var(--font-body);
+    color: #8e8e8e;
     font-weight: bold;
-    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
-.text-link:hover {
-    text-decoration: underline;
-    color: #001a4f;
+.price-card .desc {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
 }
 
-.btn-service .btn-reserve {
-    margin-right: 0;
+/* price tag */
+.price-tag {
+    background-color: #f0f4ff; 
+    color: var(--primary-color);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    font-family: var(--font-body);
+    font-weight: bold;
+}
+
+.price-tag span {
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+}
+
+/* bouton des cards */
+.btn-card {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-card:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+/* texte disclaimer du bas */
+.disclaimer {
+    text-align: center;
+    margin-top: 50px;
+    color: #666;
+    font-size: 0.95rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-section { height: 60vh; }
+    .pricing-grid { flex-direction: column; align-items: center; }
+    .price-card { width: 100%; }
 }
