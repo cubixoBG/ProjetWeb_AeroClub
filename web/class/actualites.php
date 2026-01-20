@@ -6,19 +6,20 @@ class Actualites {
         $this->db = $db;
     }
 
-    // Récupérer toutes les actualités
     public function getAll() {
         return $this->db->query("SELECT * FROM Actualite ORDER BY date_publication DESC")->fetchAll();
     }
 
-    // Récupérer une seule actualité par son ID
     public function getById($id) {
         $req = $this->db->prepare("SELECT * FROM Actualite WHERE id = ?");
         $req->execute([$id]);
         return $req->fetch();
     }
 
-    // Ajouter ou mettre à jour
+    public function getYears() {
+        return $this->db->query("SELECT DISTINCT YEAR(date_publication) as annee FROM Actualite ORDER BY annee DESC")->fetchAll(PDO::FETCH_COLUMN);
+    }
+
     public function save($data) {
         if (!empty($data['id'])) {
             // Update
@@ -37,7 +38,6 @@ class Actualites {
         }
     }
 
-    // Supprimer
     public function delete($id) {
         $req = $this->db->prepare("DELETE FROM Actualite WHERE id = ?");
         return $req->execute([$id]);
