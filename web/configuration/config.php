@@ -6,6 +6,8 @@ define('DB_NAME', 'aeroclub');
 define('DB_USER', 'root');
 define('DB_PASS', 'rootpass');
 
+$cleMeteo = "a221fcf8378ab5ca6e6911f79368a0aa";
+
 function getPDO() {
     try {
         $pdo = new PDO(

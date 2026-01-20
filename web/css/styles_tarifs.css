@@ -11,6 +11,9 @@ header.site-header {
     height: 75vh; 
     width: 100%;
     overflow: hidden; 
+    height: 75vh; 
+    width: 100%;
+    overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +22,14 @@ header.site-header {
 
 
 .hero-bg-img {
+
+.hero-bg-img {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
     top: 0;
     left: 0;
     width: 100%;
@@ -97,6 +107,11 @@ header.site-header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .price-card:hover {
@@ -105,7 +120,15 @@ header.site-header {
 
 .price-card h3 {
     font-family: var(--font-heading);
+.price-card:hover {
+    transform: translateY(-10px);
+}
+
+.price-card h3 {
+    font-family: var(--font-heading);
     color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
     font-size: 1.8rem;
     margin-bottom: 5px;
 }
@@ -118,11 +141,22 @@ header.site-header {
     font-size: 0.9rem;
     margin-bottom: 20px;
     letter-spacing: 1px;
+.duration {
+    font-family: var(--font-body);
+    color: #8e8e8e;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 .price-card .desc {
+.price-card .desc {
     color: var(--text-color);
     font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
     margin-bottom: 30px;
     line-height: 1.5;
 }
@@ -154,6 +188,10 @@ header.site-header {
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
 .btn-card:hover {
@@ -166,7 +204,12 @@ header.site-header {
 .disclaimer {
     text-align: center;
     margin-top: 50px;
+    margin-top: 50px;
     color: #666;
+    font-size: 0.95rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 0.95rem;
     max-width: 800px;
     margin-left: auto;
