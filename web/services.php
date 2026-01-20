@@ -70,7 +70,7 @@
 
             <div class="disclaimer">
                 <p>*Les avions embarquent jusqu'à 3 passagers + 1 pilote. Le tarif est le même pour 1, 2 ou 3 personnes.</p>
-                <p>Envie d'apprendre ? Découvrez <a href="#" style="text-decoration:underline; color:var(--primary-color);">notre école de pilotage</a>.</p>
+                <p>Envie d'apprendre ? Découvrez <a href="formations.php" style="text-decoration:underline; color:var(--primary-color);">notre école de pilotage</a>.</p>
             </div>
         </section>
     </main>
