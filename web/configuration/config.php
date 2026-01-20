@@ -1,10 +1,10 @@
 <?php
 // config.php
 
-define('DB_HOST', 'localhost'); 
+define('DB_HOST', 'mysql'); 
 define('DB_NAME', 'aeroclub');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', 'rootpass');
 
 $cleMeteo = "a221fcf8378ab5ca6e6911f79368a0aa";
 
