@@ -31,16 +31,15 @@
                 <p>Venez survoler le Puy et sa région dans l'un de nos avions.</p>
             </div>
         </section>
-    
-        <section class="pricing-section">
-            <div class="pricing-grid">
-                
-                <div class="price-card">
-                    <h3>Vol Découverte</h3>
-                    <div class="duration">15 minutes</div>
-                    <p class="desc">Secteurs du Puy, d'Allègre, ou lac du Bouchet.</p>
-                    <div class="price-tag">
-                        <span>Dès 100 €</span> / vol (1-3 pers)*
+
+        <section class="options-prix">
+            <div class="container">
+                <!-- vol 15 minutes-->
+                <div class="option-prix">
+                    <h3>Vol local de 15 minutes</h3>
+                    <p>Découverte des secteurs du Puy, d'Allègre, ou lac du Bouchet.</p>
+                    <div class="prix">
+                        Dès 100 € pour un vol jusqu'à 3 personnes*
                     </div>
                     <a href="#" class="btn-card">Réserver</a>
                 </div>

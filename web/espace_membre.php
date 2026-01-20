@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'class/Compte.php';
+require_once 'configuration/config.php';
 
 $msg = "";
 
@@ -31,7 +32,8 @@ $isLoggedIn = isset($_SESSION['user_id']);
 // API Météo
 function getMeteo()
 {
-    $apiKey = "a221fcf8378ab5ca6e6911f79368a0aa";
+    global $cleMeteo;
+    $apiKey = $cleMeteo;
     $city = "Le Puy-en-Velay";
     $url = "https://api.openweathermap.org/data/2.5/weather?q=" . urlencode($city) . "&appid=" . $apiKey . "&units=metric&lang=fr";
 
@@ -41,7 +43,7 @@ function getMeteo()
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Important sur Docker pour éviter les erreurs de certificat
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -57,7 +59,7 @@ function getMeteo()
             ];
             $_SESSION['meteo_time'] = time();
         } else {
-            return null; // Si l'API renvoie une erreur (ex: clé invalide)
+            return null;
         }
     }
     return $_SESSION['meteo_data'] ?? null;
@@ -121,14 +123,17 @@ $meteo = getMeteo();
                             <h3>Météo</h3>
                             <?php if ($meteo): ?>
                                 <ul class="meteo-list">
-                                    <li><i class="fa fa-map-marker" style="color: var(--primary-color);"></i> Le-Puy-en-Velay</li>
+                                    <li><i class="fa fa-map-marker" style="color: var(--primary-color);"></i> Le-Puy-en-Velay
+                                    </li>
                                     <li>
                                         <img src="https://openweathermap.org/img/wn/<?= $meteo['icon'] ?>.png" alt="icon"
                                             style="width:25px; vertical-align:middle;">
                                         <?= $meteo['desc'] ?>
                                     </li>
-                                    <li><i class="fa-solid fa-wind" style="color: var(--primary-color);"></i> <?= $meteo['wind'] ?> km/h</li>
-                                    <li><i class="fa fa-thermometer-half" style="color: var(--primary-color);"></i> <?= $meteo['temp'] ?>°C</li>
+                                    <li><i class="fa-solid fa-wind" style="color: var(--primary-color);"></i>
+                                        <?= $meteo['wind'] ?> km/h</li>
+                                    <li><i class="fa fa-thermometer-half" style="color: var(--primary-color);"></i>
+                                        <?= $meteo['temp'] ?>°C</li>
                                 </ul>
                             <?php else: ?>
                                 <p>Météo indisponible</p>
@@ -147,12 +152,18 @@ $meteo = getMeteo();
                             <h3>Actions rapides</h3>
                             <div class="action-row">
                                 <button class="btn-mail"><i class="fa fa-envelope-o"></i></button>
-                                <a href="reservation.php" class="btn-reserve">Réserver</a>
+                                <a href="services.php" class="btn-reserve">Réserver</a>
                             </div>
                         </div>
 
                         <div class="mini-card map-container">
-                            <span class="map-label">Trafic Aérien</span>
+
+                            <div class="card-box" style="padding: 0; overflow: hidden; height: 600px;">
+                                <iframe
+                                    src="https://globe.adsbexchange.com/?lat=45.080&lon=3.760&zoom=11&hideSidebar&hideButtons"
+                                    width="100%" height="100%" frameborder="0" style="border:0;">
+                                </iframe>
+                            </div>
                         </div>
                     </div>
 
