@@ -16,6 +16,7 @@ try {
 <html lang="fr">
 
 <head>
+    <!-- Meta tags SEO -->
     <meta title="Site de l'aeroclub du Velay">
     <meta
         description="Bienvenue sur le site de l'aeroclub du Velay, votre destination pour tout ce qui concerne l'aviation.">

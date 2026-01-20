@@ -72,6 +72,11 @@ $meteo = getMeteo();
 <html lang="fr">
 
 <head>
+    <!-- Meta tags SEO -->
+    <meta title="Site de l'aeroclub du Velay">
+    <meta
+        description="Bienvenue sur le site de l'aeroclub du Velay, votre destination pour tout ce qui concerne l'aviation.">
+    <meta keywords="aeroclub, aviation, vol, formation, avions, Velay, Haute-Loire, Puy-en-Velay">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espace Membre - AeroClub du Puy</title>

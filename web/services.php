@@ -27,7 +27,7 @@
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
-                <h1>NOS TARIFS</h1>
+                <h1>NOS SERVICES</h1>
                 <h2>Des sites extraordinaires à <span class="underline">redécouvrir</span></h2>
                 <p>Venez survoler le Puy et sa région dans l'un de nos avions.</p>
             </div>
