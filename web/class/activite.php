@@ -13,3 +13,9 @@ class Activite {
         return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+
+public function getById($id) {
+    $req = $this->db->prepare("SELECT * FROM Activite WHERE id = ?");
+    $req->execute([$id]);
+    return $req->fetch(PDO::FETCH_ASSOC);
+}
