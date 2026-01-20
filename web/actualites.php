@@ -1,5 +1,5 @@
 <?php
-require_once 'class/Compte.php'; 
+require_once 'class/Compte.php';
 require_once 'class/actualites.php';
 
 try {
@@ -29,6 +29,7 @@ try {
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/stylesDesktop.css">
     <link rel="stylesheet" href="css/styles_actu.css">
+    <script src="script/actualites.js"></script>
 </head>
 
 <body>
@@ -38,13 +39,14 @@ try {
 
     <main>
         <div class="archive-nav">
-            <?php foreach ($annees as $index => $annee): ?>
-                <a href="#" class="btn-archive <?= ($index === 0) ? 'active' : '' ?>"
-                    onclick="filterNews(event, '<?= $annee ?>')"><?= $annee ?></a>
+            <a href="#" class="btn-archive active" onclick="filterNews(event, 'all')">Toutes</a>
+
+            <?php foreach ($annees as $annee): ?>
+                <a href="#" class="btn-archive" onclick="filterNews(event, '<?= $annee ?>')"><?= $annee ?></a>
             <?php endforeach; ?>
         </div>
 
-        <div class="news-feed div-center">
+        <div class="news-feed">
             <?php foreach ($articles as $art):
                 $anneeArt = date('Y', strtotime($art['date_publication']));
                 ?>
@@ -64,7 +66,7 @@ try {
                         <p><?= nl2br(htmlspecialchars($art['description'])) ?></p>
 
                         <?php if (!empty($art['pdf_url'])): ?>
-                            <div class="div-center" style="margin: 20px 0;">
+                            <div class="div-center">
                                 <a href="<?= htmlspecialchars($art['pdf_url']) ?>" download class="btn-simple">
                                     Télécharger le document
                                 </a>
@@ -77,7 +79,6 @@ try {
     </main>
 
     <?php include 'php_parts/footer.php' ?>
-    <script src="script/actualites.js"></script>
 
 </body>
 

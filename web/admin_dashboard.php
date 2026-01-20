@@ -1,8 +1,10 @@
 <?php
 session_start();
+require_once 'configuration/config.php';
 require_once 'class/Compte.php';
 require_once 'class/actualites.php';
 require_once 'class/flotte.php';
+require_once 'class/Activite.php';
 
 // Verif du role admin
 if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
@@ -12,8 +14,9 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
 
 $db = getPDO();
 $actuManager = new Actualites($db);
-$flotteManager = new Flotte($db); // Initialisé ici
-
+$flotteManager = new Flotte($db);
+$activiteManager = new Activite($db);
+$msg_activite = "";
 $msg = "";
 $msg_avion = "";
 $uploadDir = 'img/';
@@ -94,6 +97,50 @@ if (isset($_POST['save_avion'])) {
     }
 }
 
+// --- ACTIONS ACTIVITÉS (TARIFS) ---
+
+if (isset($_POST['save_activite'])) {
+    $data_activite = [
+        'id' => $_POST['id_activite'] ?: null,
+        'name' => $_POST['name'],
+        'description' => $_POST['description'],
+        'prix' => $_POST['prix'],
+        'nb_places' => $_POST['nb_places'],
+        'duree' => $_POST['duree'],
+        'ordre' => $_POST['ordre'] ?: 0
+    ];
+
+    if ($data_activite['id']) {
+        // Update sans highlight ni btn_text
+        $req = $db->prepare("UPDATE Activite SET name=?, description=?, prix=?, nb_places=?, duree=?, ordre=? WHERE id=?");
+        $req->execute([$data_activite['name'], $data_activite['description'], $data_activite['prix'], $data_activite['nb_places'], $data_activite['duree'], $data_activite['ordre'], $data_activite['id']]);
+    } else {
+        // Insert sans highlight ni btn_text
+        $req = $db->prepare("INSERT INTO Activite (name, description, prix, nb_places, duree, ordre) VALUES (?,?,?,?,?,?)");
+        $req->execute([$data_activite['name'], $data_activite['description'], $data_activite['prix'], $data_activite['nb_places'], $data_activite['duree'], $data_activite['ordre']]);
+    }
+    $msg_activite = "Tarif mis à jour !";
+}
+
+if (isset($_GET['delete_activite'])) {
+    $id_a_supprimer = $_GET['delete_activite'];
+    
+    // On prépare la requête SQL pour la table 'Activite'
+    $stmt = $db->prepare("DELETE FROM Activite WHERE id = ?");
+    
+    if ($stmt->execute([$id_a_supprimer])) {
+        // Redirection pour "nettoyer" l'URL et éviter de supprimer en boucle au rafraîchissement
+        header("Location: admin_dashboard.php?msg_del=1"); 
+        exit();
+    }
+}
+
+// Message de succès après redirection
+if (isset($_GET['msg_del'])) {
+    $msg_activite = "Le tarif a été supprimé avec succès.";
+}
+
+
 // --- RÉCUPÉRATION DES DONNÉES POUR L'AFFICHAGE ---
 $edit_data = isset($_GET['edit']) ? $actuManager->getById($_GET['edit']) : null;
 $all_news = $actuManager->getAll();
@@ -101,12 +148,20 @@ $default_date = $edit_data ? date('Y-m-d', strtotime($edit_data['date_publicatio
 
 $edit_avion = isset($_GET['edit_avion']) ? $flotteManager->getById($_GET['edit_avion']) : null;
 $all_avions = $flotteManager->getAll();
+
+$edit_activite = isset($_GET['edit_activite']) ? $activiteManager->getById($_GET['edit_activite']) : null;
+$all_activites = $activiteManager->getAll();
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
+    <!-- Meta tags SEO -->
+    <meta title="Site de l'aeroclub du Velay">
+    <meta
+        description="Bienvenue sur le site de l'aeroclub du Velay, votre destination pour tout ce qui concerne l'aviation.">
+    <meta keywords="aeroclub, aviation, vol, formation, avions, Velay, Haute-Loire, Puy-en-Velay">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin - AeroClub du Puy</title>
@@ -126,11 +181,76 @@ $all_avions = $flotteManager->getAll();
                     <div class="auth-msg success-msg"><?= $msg ?></div>
                 <?php endif; ?>
                 <?php if ($msg_avion): ?>
-                    <div class="auth-msg success-msg" style="background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb;"><?= $msg_avion ?></div>
+                    <div class="auth-msg success-msg"><?= $msg_avion ?></div>
                 <?php endif; ?>
 
                 <div class="dashboard-grid">
-                    
+
+                    <div class="mini-card full-width">
+                        <h3><?= $edit_activite ? "Modifier le tarif" : "Ajouter un tarif" ?></h3>
+
+                        <form method="POST" class="form-card admin-form">
+                            <input type="hidden" name="id_activite" value="<?= $edit_activite['id'] ?? '' ?>">
+
+                            <div class="form-main-inputs">
+                                <input type="text" name="name" placeholder="Nom du service"
+                                    value="<?= htmlspecialchars($edit_activite['name'] ?? '') ?>" required>
+                                <input type="text" name="duree" placeholder="Durée"
+                                    value="<?= htmlspecialchars($edit_activite['duree'] ?? '') ?>" required>
+                            </div>
+
+                            <textarea name="description" placeholder="Description courte"
+                                required><?= htmlspecialchars($edit_activite['description'] ?? '') ?></textarea>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top:10px;">
+                                <input type="number" name="prix" placeholder="Prix (€)"
+                                    value="<?= $edit_activite['prix'] ?? '' ?>" required>
+                                <input type="number" name="nb_places" placeholder="Passagers"
+                                    value="<?= $edit_activite['nb_places'] ?? '' ?>" required>
+                                <input type="number" name="ordre" placeholder="Ordre d'affichage"
+                                    value="<?= $edit_activite['ordre'] ?? '0' ?>">
+                            </div>
+
+                            <div class="form-actions" style="margin-top:15px;">
+                                <button type="submit" name="save_activite" class="btn-reserve">Enregistrer</button>
+                                <?php if ($edit_activite): ?>
+                                    <a href="admin_dashboard.php" class="link-delete">Annuler</a>
+                                <?php endif; ?>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="mini-card full-width">
+                        <h3>Activités en ligne</h3>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prix</th>
+                                    <th>Ordre</th>
+                                    <th class="txt-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($all_activites as $act): ?>
+                                    <tr>
+                                        <td class="bold">
+                                            <?= ($act['is_highlight']) ? '⭐ ' : '' ?>
+                                            <?= htmlspecialchars($act['name']) ?>
+                                        </td>
+                                        <td><?= $act['prix'] ?> €</td>
+                                        <td><?= $act['ordre'] ?></td>
+                                        <td class="action-cell">
+                                            <a href="?edit_activite=<?= $act['id'] ?>" class="link-edit">Modifier</a>
+                                            <a href="?delete_activite=<?= $act['id'] ?>" class="link-delete"
+                                                onclick="return confirm('Supprimer cette activitée ?')">Supprimer</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <div class="mini-card full-width">
                         <h3><?= $edit_data ? "Modifier l'actualité" : "Publier une news" ?></h3>
                         <form method="POST" enctype="multipart/form-data" class="form-card admin-form">
@@ -209,7 +329,7 @@ $all_avions = $flotteManager->getAll();
                                     value="<?= htmlspecialchars($edit_avion['type'] ?? '') ?>" required>
                             </div>
 
-                            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top:10px;">
+                            <div>
                                 <input type="text" name="puissance" placeholder="Puissance (ex: 152 CH)"
                                     value="<?= htmlspecialchars($edit_avion['puissance'] ?? '') ?>">
                                 <input type="text" name="vitesse" placeholder="Vitesse (ex: 110 KT)"
@@ -218,13 +338,14 @@ $all_avions = $flotteManager->getAll();
                                     value="<?= htmlspecialchars($edit_avion['autonomie'] ?? '') ?>">
                             </div>
 
-                            <div class="file-group" style="margin-top:10px;">
+                            <div class="file-group">
                                 <label>Photo de l'appareil</label>
                                 <input type="file" name="avion_file" accept="image/*">
                             </div>
 
                             <div class="form-actions">
-                                <button type="submit" name="save_avion" class="btn-reserve">Sauvegarder l'appareil</button>
+                                <button type="submit" name="save_avion" class="btn-reserve">Sauvegarder
+                                    l'appareil</button>
                             </div>
                         </form>
                     </div>
@@ -260,7 +381,8 @@ $all_avions = $flotteManager->getAll();
                         </div>
                     </div>
 
-                </div> <div class="dashboard-footer">
+                </div>
+                <div class="dashboard-footer">
                     <a href="logout.php" class="btn-logout">Déconnexion</a>
                 </div>
             </div>
@@ -268,4 +390,5 @@ $all_avions = $flotteManager->getAll();
     </main>
     <?php include 'php_parts/footer.php' ?>
 </body>
+
 </html>

@@ -6,18 +6,16 @@ header.site-header {
     z-index: 1000;
 }
 
-
 .hero-section {
     position: relative;
-    height: 75vh; 
+    height: 75vh;
     width: 100%;
-    overflow: hidden; 
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-
 
 .hero-bg-img {
     position: absolute;
@@ -25,31 +23,30 @@ header.site-header {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     z-index: 1;
 }
 
-/* permet d'ajouter un filtre à l'image */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0,36,107,0.3), rgba(0,0,0,0.6));
+    background: linear-gradient(to bottom, rgba(0, 36, 107, 0.3), rgba(0, 0, 0, 0.6));
     z-index: 2;
 }
 
 .hero-content {
     position: relative;
-    z-index: 3; 
+    z-index: 3;
     color: white;
     padding: 0 20px;
-    margin-top: 60px; 
+    margin-top: 60px;
 }
 
 .hero-content h1 {
-    font-family: var(--font-heading); 
+    font-family: var(--font-heading);
     font-size: 3.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -57,7 +54,7 @@ header.site-header {
 }
 
 .hero-content h2 {
-    font-family: var(--font-body); 
+    font-family: var(--font-body);
     font-weight: 300;
     margin-bottom: 20px;
 }
@@ -69,7 +66,7 @@ header.site-header {
 /* les cards de prix */
 .pricing-section {
     padding: 80px 5%;
-    background-color: var(--background-color); 
+    background-color: var(--background-color);
 }
 
 .pricing-grid {
@@ -87,11 +84,11 @@ header.site-header {
     min-width: 300px;
     max-width: 380px;
     padding: 40px 30px;
-    border-radius: 24px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: transform 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.02);
+    border: 1px solid rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -127,7 +124,7 @@ header.site-header {
 
 /* les tag de prix */
 .price-tag {
-    background-color: #f0f4ff; 
+    background-color: #f0f4ff;
     color: var(--primary-color);
     padding: 15px;
     border-radius: 12px;
@@ -141,24 +138,6 @@ header.site-header {
     font-family: var(--font-heading);
 }
 
-/* boutons de cards */
-.btn-card {
-    display: inline-block;
-    padding: 12px 30px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50px;
-    color: var(--primary-color);
-    font-family: var(--font-heading);
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.btn-card:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
 /* disclaimer du bas */
 .disclaimer {
     text-align: center;
@@ -170,10 +149,97 @@ header.site-header {
     margin-right: auto;
 }
 
-/* responsive  */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--accent-color);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.auth-flex {
+    display: flex;
+    gap: 20px;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.auth-box {
+    flex: 1;
+}
+
+.auth-box h4 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    .auth-flex {
+        flex-direction: column;
+    }
+}
+
+/* responsive  desktop */
 @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.2rem; }
-    .hero-section { height: 60vh; }
-    .pricing-grid { flex-direction: column; align-items: center; }
-    .price-card { width: 100%; }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-section {
+        height: 60vh;
+    }
+
+    .pricing-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .price-card {
+        width: 100%;
+    }
 }
