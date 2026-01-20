@@ -2,4 +2,5 @@ db/
 docker/
 .env
 docker-compose.yml
-configuration/
+.DS_Store
+web/.DS_Store
