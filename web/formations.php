@@ -1,5 +1,6 @@
 <?php
 // Inclusions selon ta structure
+require_once 'configuration/config.php';
 require_once 'class/Compte.php';
 require_once 'class/flotte.php';
 
