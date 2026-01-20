@@ -3,16 +3,15 @@
 <head>
     <!-- Meta tags SEO -->
     <meta title="Site de l'aeroclub du Velay">
-    <meta
-        description="Bienvenue sur le site de l'aeroclub du Velay, votre destination pour tout ce qui concerne l'aviation.">
-    <meta keywords="aeroclub, aviation, vol, formation, avions, Velay, Haute-Loire, Puy-en-Velay, services aeroclub">
+    <meta description="Bienvenue sur le site de l'aeroclub du Velay, votre destination pour tout ce qui concerne l'aviation.">
+    <meta keywords="aeroclub, aviation, vol, formation, avions, Velay, Haute-Loire, Puy-en-Velay">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les Services - AeroClub du Puy</title>
+    <title>Nos services - AeroClub du Puy</title>
     <!-- icon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/stylesDesktop.css">
+    <link rel="stylesheet" href="css/styles_tarifs.css">
 </head>
 
 <body>
@@ -68,14 +67,9 @@
 
             </div>
 
-                <div class="disclaimer">
-                    *Les avions pouvant embarquer 3 passagers et un pilote, les tarifs sont identiques pour une, deux ou
-                    trois personnes.
-                </div>
-
-                <div class="div-center btn-service">
-                    <a href="#" class="btn-reserve">Réserver</a>
-                </div>
+            <div class="disclaimer">
+                <p>*Les avions embarquent jusqu'à 3 passagers + 1 pilote. Le tarif est le même pour 1, 2 ou 3 personnes.</p>
+                <p>Envie d'apprendre ? Découvrez <a href="#" style="text-decoration:underline; color:var(--primary-color);">notre école de pilotage</a>.</p>
             </div>
         </section>
     </main>
