@@ -22,8 +22,6 @@ header.site-header {
 
 
 .hero-bg-img {
-
-.hero-bg-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -120,6 +118,8 @@ header.site-header {
 
 .price-card h3 {
     font-family: var(--font-heading);
+}
+
 .price-card:hover {
     transform: translateY(-10px);
 }
@@ -141,6 +141,8 @@ header.site-header {
     font-size: 0.9rem;
     margin-bottom: 20px;
     letter-spacing: 1px;
+}
+
 .duration {
     font-family: var(--font-body);
     color: #8e8e8e;
@@ -151,7 +153,6 @@ header.site-header {
     letter-spacing: 1px;
 }
 
-.price-card .desc {
 .price-card .desc {
     color: var(--text-color);
     font-size: 1.1rem;
